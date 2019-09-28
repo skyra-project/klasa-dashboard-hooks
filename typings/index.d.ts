@@ -64,12 +64,12 @@ declare module 'klasa-dashboard-hooks' {
 	export abstract class Middleware extends Piece {
 		public constructor(store: MiddlewareStore, file: string[], directory: string, options?: MiddlewareOptions);
 		public priority: number;
-		public abstract run(request: KlasaIncomingMessage, response: ServerResponse, route?: Route): Promise<void>;
+		public abstract run(request: KlasaIncomingMessage, response: ServerResponse, route?: Route): unknown;
 	}
 
 	export class MiddlewareStore extends Store<string, Middleware, typeof Middleware> {
 		public sortedMiddlewares: Middleware[];
-		public run(request: KlasaIncomingMessage, response: ServerResponse, route?: Route): Promise<void>;
+		public async run(request: KlasaIncomingMessage, response: ServerResponse, route?: Route): Promise<unknown>;
 	}
 
 	export abstract class Route extends Piece {

@@ -19,7 +19,7 @@ class MiddlewareStore extends Store {
 		 * The middlewares sorted by priority
 		 * @type {Middleware[]}
 		 */
-		this.sortedMiddlwares = [];
+		this.sortedMiddlewares = [];
 	}
 
 	/**
@@ -28,7 +28,7 @@ class MiddlewareStore extends Store {
 	 * @returns {void}
 	 */
 	clear() {
-		this.sortedMiddlwares = [];
+		this.sortedMiddlewares = [];
 		return super.clear();
 	}
 
@@ -40,10 +40,10 @@ class MiddlewareStore extends Store {
 	set(piece) {
 		const middleware = super.set(piece);
 		if (!middleware) return middleware;
-		const index = this.sortedMiddlwares.findIndex(mid => mid.priority >= middleware.priority);
+		const index = this.sortedMiddlewares.findIndex(mid => mid.priority >= middleware.priority);
 		// If a middleware with lower priority wasn't found, push to the end of the array
-		if (index === -1) this.sortedMiddlwares.push(middleware);
-		else this.sortedMiddlwares.splice(index, 0, middleware);
+		if (index === -1) this.sortedMiddlewares.push(middleware);
+		else this.sortedMiddlewares.splice(index, 0, middleware);
 		return middleware;
 	}
 
@@ -55,7 +55,7 @@ class MiddlewareStore extends Store {
 	delete(name) {
 		const middleware = this.resolve(name);
 		if (!middleware) return false;
-		this.sortedMiddlwares.splice(this.sortedMiddlwares.indexOf(middleware), 1);
+		this.sortedMiddlewares.splice(this.sortedMiddlewares.indexOf(middleware), 1);
 		return super.delete(middleware);
 	}
 
@@ -68,7 +68,7 @@ class MiddlewareStore extends Store {
 	 * @returns {void}
 	 */
 	async run(request, response, route) {
-		for (const middleware of this.sortedMiddlwares) {
+		for (const middleware of this.sortedMiddlewares) {
 			if (response.finished) return;
 			if (middleware.enabled) await middleware.run(request, response, route);
 		}
