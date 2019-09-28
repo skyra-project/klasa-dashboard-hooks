@@ -100,6 +100,8 @@ declare module 'klasa-dashboard-hooks' {
 //#region Types
 
 	export interface KlasaDashboardHooksOptions {
+		clientID?: string;
+		clientSecret?: string;
 		apiPrefix?: string;
 		origin?: string;
 		port?: number;
@@ -194,6 +196,11 @@ declare module 'discord.js' {
 		routes: RouteStore;
 		middlewares: MiddlewareStore;
 		dashboardUsers: DataStore<string, DashboardUser, typeof DashboardUser>;
+	}
+
+	interface ClientOptions {
+		clientID?: string;
+		clientSecret?: string;
 	}
 
 }
