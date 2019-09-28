@@ -100,8 +100,6 @@ declare module 'klasa-dashboard-hooks' {
 //#region Types
 
 	export interface KlasaDashboardHooksOptions {
-		clientID?: string;
-		clientSecret?: string;
 		apiPrefix?: string;
 		origin?: string;
 		port?: number;
@@ -110,6 +108,8 @@ declare module 'klasa-dashboard-hooks' {
 	}
 
 	export interface DashboardClientOptions extends KlasaClientOptions {
+		clientID?: string;
+		clientSecret?: string;
 		dashboardHooks?: KlasaDashboardHooksOptions;
 	}
 
@@ -187,7 +187,7 @@ declare module 'klasa' {
 
 declare module 'discord.js' {
 
-	import { DashboardUser, MiddlewareStore, RouteStore, Server } from 'klasa-dashboard-hooks';
+	import { DashboardUser, MiddlewareStore, RouteStore, Server, KlasaDashboardHooksOptions } from 'klasa-dashboard-hooks';
 	import { ServerOptions as H1ServerOptions } from 'http';
 	import { ServerOptions as HS1ServerOptions } from 'https';
 	import { SecureServerOptions as H2SecureServerOptions } from 'http2';
@@ -200,15 +200,9 @@ declare module 'discord.js' {
 	}
 
 	interface ClientOptions {
-		dashboardHooks?: {
-			clientID?: string;
-			clientSecret?: string;
-			apiPrefix?: string;
-			origin?: string;
-			port?: number;
-			http2?: boolean;
-			serverOptions?: H1ServerOptions | HS1ServerOptions | H2SecureServerOptions;
-		};
+		clientID?: string;
+		clientSecret?: string;
+		dashboardHooks?: KlasaDashboardHooksOptions;
 	}
 
 }
