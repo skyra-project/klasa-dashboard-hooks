@@ -200,13 +200,15 @@ declare module 'discord.js' {
 	}
 
 	interface ClientOptions {
-		clientID?: string;
-		clientSecret?: string;
-		apiPrefix?: string;
-		origin?: string;
-		port?: number;
-		http2?: boolean;
-		serverOptions?: H1ServerOptions | HS1ServerOptions | H2SecureServerOptions;
+		dashboardHooks?: {
+			clientID?: string;
+			clientSecret?: string;
+			apiPrefix?: string;
+			origin?: string;
+			port?: number;
+			http2?: boolean;
+			serverOptions?: H1ServerOptions | HS1ServerOptions | H2SecureServerOptions;
+		};
 	}
 
 }
