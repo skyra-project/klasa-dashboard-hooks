@@ -1,10 +1,11 @@
-import { KlasaClient, KlasaClientOptions, Piece, Store, PieceOptions, PieceDefaults, KlasaUser, KlasaGuild } from 'klasa';
-import { Server as HttpServer, IncomingMessage, ServerResponse } from 'http';
-import { SecureContextOptions, Server as HttpSecureServer } from 'tls';
-import { Http2SecureServer } from 'http2';
-import { DataStore, Collection, Permissions } from 'discord.js';
-
 declare module 'klasa-dashboard-hooks' {
+
+	import { KlasaClient, KlasaClientOptions, Piece, Store, PieceOptions, PieceDefaults, KlasaUser, KlasaGuild } from 'klasa';
+	import { Server as HttpServer, IncomingMessage, ServerResponse, ServerOptions as H1ServerOptions } from 'http';
+	import { ServerOptions as HS1ServerOptions } from 'https';
+	import { Http2SecureServer, SecureServerOptions as H2SecureServerOptions } from 'http2';
+	import { SecureContextOptions, Server as HttpSecureServer } from 'tls';
+	import { DataStore, Collection, Permissions } from 'discord.js';
 
 //#region Classes
 
@@ -61,7 +62,7 @@ declare module 'klasa-dashboard-hooks' {
 	}
 
 	export abstract class Middleware extends Piece {
-		public constructor(client: DashboardClient, store: MiddlewareStore, file: string[], directory: string, options?: MiddlewareOptions);
+		public constructor(store: MiddlewareStore, file: string[], directory: string, options?: MiddlewareOptions);
 		public priority: number;
 		public abstract run(request: KlasaIncomingMessage, response: ServerResponse, route?: Route): Promise<void>;
 	}
@@ -72,7 +73,7 @@ declare module 'klasa-dashboard-hooks' {
 	}
 
 	export abstract class Route extends Piece {
-		public constructor(client: DashboardClient, store: RouteStore, file: string[], directory: string, options?: RouteOptions);
+		public constructor(store: RouteStore, file: string[], directory: string, options?: RouteOptions);
 		public authenticated: boolean;
 		public parsed: ParsedRoute;
 		public route: string;
@@ -103,7 +104,7 @@ declare module 'klasa-dashboard-hooks' {
 		origin?: string;
 		port?: number;
 		http2?: boolean;
-		sslOptions?: SecureContextOptions;
+		serverOptions?: H1ServerOptions | HS1ServerOptions | H2SecureServerOptions;
 	}
 
 	export interface DashboardClientOptions extends KlasaClientOptions {
@@ -147,9 +148,8 @@ declare module 'klasa-dashboard-hooks' {
 	export interface Constants {
 		OPTIONS: {
 			dashboardHooks: Required<KlasaDashboardHooksOptions>;
-			pieceDefaults: PieceDefaults & {
-				routes: Required<RouteOptions>;
-				middlewares: Required<MiddlewareOptions>;
+			pieceDefaults: {
+				[K in keyof PieceDefaults]: Required<PieceDefaults[K]>;
 			};
 		};
 		METHODS_LOWER: string[];
@@ -169,5 +169,16 @@ declare module 'klasa-dashboard-hooks' {
 	}
 
 //#endregion Types
+
+}
+
+declare module 'klasa' {
+
+	import { RouteOptions, MiddlewareOptions } from 'klasa-dashboard-hooks';
+
+	interface PieceDefaults {
+		routes: RouteOptions;
+		middlewares: MiddlewareOptions;
+	}
 
 }

@@ -5,7 +5,8 @@ exports.OPTIONS = {
 		apiPrefix: 'api/',
 		origin: '*',
 		port: 4000,
-		http2: false
+		http2: false,
+		serverOptions: {}
 	},
 	pieceDefaults: {
 		routes: {
