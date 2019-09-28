@@ -174,11 +174,26 @@ declare module 'klasa-dashboard-hooks' {
 
 declare module 'klasa' {
 
-	import { RouteOptions, MiddlewareOptions } from 'klasa-dashboard-hooks';
+	import { MiddlewareOptions, RouteOptions } from 'klasa-dashboard-hooks';
+	import { Server } from 'http';
 
 	interface PieceDefaults {
 		routes: RouteOptions;
 		middlewares: MiddlewareOptions;
+	}
+
+}
+
+declare module 'discord.js' {
+
+	import { DashboardUser, MiddlewareStore, RouteStore } from 'klasa-dashboard-hooks';
+	import { Server } from 'http';
+
+	interface Client {
+		server: Server;
+		routes: RouteStore;
+		middlewares: MiddlewareStore;
+		dashboardUsers: DataStore<string, DashboardUser, typeof DashboardUser>;
 	}
 
 }
