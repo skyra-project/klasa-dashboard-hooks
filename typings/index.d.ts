@@ -188,9 +188,6 @@ declare module 'klasa' {
 declare module 'discord.js' {
 
 	import { DashboardUser, MiddlewareStore, RouteStore, Server, KlasaDashboardHooksOptions } from 'klasa-dashboard-hooks';
-	import { ServerOptions as H1ServerOptions } from 'http';
-	import { ServerOptions as HS1ServerOptions } from 'https';
-	import { SecureServerOptions as H2SecureServerOptions } from 'http2';
 
 	interface Client {
 		server: Server;
