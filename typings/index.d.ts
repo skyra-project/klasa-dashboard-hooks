@@ -69,7 +69,7 @@ declare module 'klasa-dashboard-hooks' {
 
 	export class MiddlewareStore extends Store<string, Middleware, typeof Middleware> {
 		public sortedMiddlewares: Middleware[];
-		public async run(request: KlasaIncomingMessage, response: ServerResponse, route?: Route): Promise<unknown>;
+		public run(request: KlasaIncomingMessage, response: ServerResponse, route?: Route): Promise<unknown>;
 	}
 
 	export abstract class Route extends Piece {
@@ -151,7 +151,7 @@ declare module 'klasa-dashboard-hooks' {
 		OPTIONS: {
 			dashboardHooks: Required<KlasaDashboardHooksOptions>;
 			pieceDefaults: {
-				[K in keyof PieceDefaults]: Required<PieceDefaults[K]>;
+				[K in keyof PieceDefaults]?: Required<PieceDefaults[K]>;
 			};
 		};
 		METHODS_LOWER: string[];
@@ -177,7 +177,6 @@ declare module 'klasa-dashboard-hooks' {
 declare module 'klasa' {
 
 	import { MiddlewareOptions, RouteOptions } from 'klasa-dashboard-hooks';
-	import { Server } from 'http';
 
 	interface PieceDefaults {
 		routes: RouteOptions;
@@ -188,8 +187,7 @@ declare module 'klasa' {
 
 declare module 'discord.js' {
 
-	import { DashboardUser, MiddlewareStore, RouteStore } from 'klasa-dashboard-hooks';
-	import { Server } from 'http';
+	import { DashboardUser, MiddlewareStore, RouteStore, Server } from 'klasa-dashboard-hooks';
 
 	interface Client {
 		server: Server;
