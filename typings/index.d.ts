@@ -179,8 +179,8 @@ declare module 'klasa' {
 	import { MiddlewareOptions, RouteOptions } from 'klasa-dashboard-hooks';
 
 	interface PieceDefaults {
-		routes: RouteOptions;
-		middlewares: MiddlewareOptions;
+		routes?: RouteOptions;
+		middlewares?: MiddlewareOptions;
 	}
 
 }
