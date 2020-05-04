@@ -108,6 +108,11 @@ class Server {
 	 * @param {external:ServerResponse} response The response
 	 */
 	onError(error, request, response) {
+		if (response.finished) {
+			this.client.emit('error', error);
+			return;
+		}
+
 		const code = response.statusCode = error.code || error.status || error.statusCode || 500;
 		response.end((error.length && error) || error.message || http.STATUS_CODES[code]);
 	}

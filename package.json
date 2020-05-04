@@ -15,8 +15,8 @@
     "url": "https://github.com/dirigeants/klasa-dashboard-hooks.git"
   },
   "scripts": {
-    "lint": "npx eslint --fix src && npx eslint --fix --config .eslintrcmd.json --ext md guides && npx tslint --fix 'typings/*.ts'",
-    "test:lint": "npx eslint src && npx tslint 'typings/*.ts' && npx eslint --config .eslintrcmd.json --ext md guides && npx markdownlint guides README.md",
+    "lint": "npx eslint --fix src && npx eslint --fix --config .eslintrcmd.json --ext md guides",
+    "test:lint": "npx eslint src && npx eslint --config .eslintrcmd.json --ext md guides && npx markdownlint guides README.md",
     "docs": "npx dg --source src --custom guides/.docconfig.json --output dist/docs.json --logging"
   },
   "dependencies": {
@@ -33,7 +33,6 @@
     "eslint-config-klasa": "github:dirigeants/klasa-lint",
     "eslint-plugin-markdown": "^1.0.0",
     "markdownlint-cli": "^0.17.0",
-    "tslint": "^5.16.0",
     "typescript": "^3.6.3"
   },
   "engines": {
