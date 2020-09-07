@@ -1,11 +1,11 @@
 declare module 'klasa-dashboard-hooks' {
 
-	import { KlasaClient, KlasaClientOptions, Piece, Store, PieceOptions, PieceDefaults, KlasaUser, KlasaGuild } from 'klasa';
+	import { KlasaClient, KlasaClientOptions, Piece, Store, PieceOptions, PieceDefaults, KlasaGuild } from 'klasa';
 	import { Server as HttpServer, IncomingMessage, ServerResponse, ServerOptions as H1ServerOptions } from 'http';
 	import { ServerOptions as HS1ServerOptions } from 'https';
 	import { Http2SecureServer, SecureServerOptions as H2SecureServerOptions } from 'http2';
-	import { SecureContextOptions, Server as HttpSecureServer } from 'tls';
-	import { DataStore, Collection, Permissions } from 'discord.js';
+    import { Server as HttpSecureServer } from 'tls';
+	import { Collection, Permissions, User } from 'discord.js';
 
 //#region Classes
 
@@ -15,7 +15,7 @@ declare module 'klasa-dashboard-hooks' {
 		public server: Server;
 		public routes: RouteStore;
 		public middlewares: MiddlewareStore;
-		public dashboardUsers: DataStore<string, DashboardUser, typeof DashboardUser>;
+		public dashboardUsers: Collection<string, DashboardUser>
 	}
 
 	export { DashboardClient as Client };
@@ -31,7 +31,7 @@ declare module 'klasa-dashboard-hooks' {
 		public avatar: string;
 		public guilds: Collection<string, DashboardGuild>;
 		public avatarURL: string;
-		public user: KlasaUser | null;
+		public user: User | null;
 		public toJSON(): any;
 		private setupGuilds(dashboardUser: DashboardUser, guilds: any[]): void;
 	}
@@ -193,7 +193,7 @@ declare module 'discord.js' {
 		server: Server;
 		routes: RouteStore;
 		middlewares: MiddlewareStore;
-		dashboardUsers: DataStore<string, DashboardUser, typeof DashboardUser>;
+		dashboardUsers: Collection<string, DashboardUser>;
 	}
 
 	interface ClientOptions {
