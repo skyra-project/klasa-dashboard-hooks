@@ -1,41 +1,66 @@
 {
-  "name": "klasa-dashboard-hooks",
-  "version": "0.0.1-dev",
-  "description": "Klasa Dashboard Hooks: a simple plugin for the klasa bot framework that exposes an api for use in a frontend framework.",
-  "homepage": "https://klasa.js.org/",
-  "bugs": {
-    "url": "https://github.com/dirigeants/klasa-dashboard-hooks/issues"
-  },
-  "license": "MIT",
-  "author": "BDistin",
-  "main": "src/index.js",
-  "types": "typings/index.d.ts",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/dirigeants/klasa-dashboard-hooks.git"
-  },
-  "scripts": {
-    "lint": "npx eslint --fix src && npx eslint --fix --config .eslintrcmd.json --ext md guides",
-    "test:lint": "npx eslint src && npx eslint --config .eslintrcmd.json --ext md guides && npx markdownlint guides README.md",
-    "docs": "npx dg --source src --custom guides/.docconfig.json --output dist/docs.json --logging"
-  },
-  "dependencies": {
-    "node-fetch": "^2.6.0"
-  },
-  "peerDependencies": {
-    "discord.js": "^12.3.1",
-    "klasa": "github:dirigeants/klasa#master"
-  },
-  "devDependencies": {
-    "@types/node": "^12.6.3",
-    "docgen": "github:dirigeants/docsgen",
-    "eslint": "^6.0.1",
-    "eslint-config-klasa": "github:dirigeants/klasa-lint",
-    "eslint-plugin-markdown": "^1.0.0",
-    "markdownlint-cli": "^0.17.0",
-    "typescript": "^3.6.3"
-  },
-  "engines": {
-    "node": ">=10.0.0"
-  }
+	"name": "klasa-dashboard-hooks",
+	"version": "0.0.1-dev",
+	"description": "Klasa Dashboard Hooks: a simple plugin for the klasa bot framework that exposes an api for use in a frontend framework.",
+	"author": "@skyra",
+	"license": "MIT",
+	"main": "src/index.js",
+	"types": "typings/index.d.ts",
+	"homepage": "https://github.com/skyra-project/klasa-dashboard-hooks",
+	"scripts": {
+		"lint": "eslint --ext js,ts src typings --fix",
+		"format": "prettier --write --loglevel=warn \"{src,typings}/**/*.ts\"",
+		"update": "yarn upgrade-interactive --latest"
+	},
+	"dependencies": {
+		"node-fetch": "^2.6.1"
+	},
+	"peerDependencies": {
+		"discord.js": "^12.5.1",
+		"klasa": "skyra-project/klasa#settings"
+	},
+	"devDependencies": {
+		"@sapphire/eslint-config": "^1.1.0",
+		"@sapphire/prettier-config": "^1.0.2",
+		"@sapphire/ts-config": "^1.0.3",
+		"@types/node": "^14.14.14",
+		"@typescript-eslint/eslint-plugin": "^4.11.0",
+		"@typescript-eslint/parser": "^4.11.0",
+		"eslint": "^7.16.0",
+		"eslint-config-prettier": "^7.1.0",
+		"eslint-plugin-prettier": "^3.3.0",
+		"prettier": "^2.2.1",
+		"typescript": "^4.1.3"
+	},
+	"files": [
+		"src",
+		"typings"
+	],
+	"engines": {
+		"node": ">=12",
+		"npm": ">=6"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/dirigeants/klasa-dashboard-hooks.git"
+	},
+	"bugs": {
+		"url": "https://github.com/dirigeants/klasa-dashboard-hooks/issues"
+	},
+	"keywords": [
+		"skyra",
+		"yarn",
+		"discord",
+		"bot",
+		"api",
+		"discordjs"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"resolutions": {
+		"acorn": "^8.0.4",
+		"minimist": "^1.2.5"
+	},
+	"prettier": "@sapphire/prettier-config"
 }

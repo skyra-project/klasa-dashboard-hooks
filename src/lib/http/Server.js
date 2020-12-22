@@ -8,7 +8,6 @@ const { METHODS_LOWER } = require('../util/constants');
  * The http server for klasa-dashboard-hooks
  */
 class Server {
-
 	/**
 	 * @typedef {Object} AuthData
 	 * @property {string} token The access token
@@ -52,9 +51,11 @@ class Server {
 		 * @since 0.0.1
 		 * @type {external:HTTPServer}
 		 */
-		this.server = http2 ?
-			require('http2').createSecureServer(serverOptions) :
-			serverOptions.cert ? require('https').createServer(serverOptions) : http.createServer(serverOptions);
+		this.server = http2
+			? require('http2').createSecureServer(serverOptions)
+			: serverOptions.cert
+			? require('https').createServer(serverOptions)
+			: http.createServer(serverOptions);
 
 		/**
 		 * The onError function called when a url does not match
@@ -72,7 +73,7 @@ class Server {
 	listen(port) {
 		this.server.on('request', this.handler.bind(this));
 		return new Promise((res, rej) => {
-			this.server.listen(port, err => err ? rej(err) : res());
+			this.server.listen(port, (err) => (err ? rej(err) : res()));
 		});
 	}
 
@@ -113,10 +114,9 @@ class Server {
 			return;
 		}
 
-		const code = response.statusCode = error.code || error.status || error.statusCode || 500;
+		const code = (response.statusCode = error.code || error.status || error.statusCode || 500);
 		response.end((error.length && error) || error.message || http.STATUS_CODES[code]);
 	}
-
 }
 
 module.exports = Server;

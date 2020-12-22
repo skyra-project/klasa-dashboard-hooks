@@ -9,7 +9,6 @@ const { parse } = require('../util/Util');
  * @extends external:Piece
  */
 class Route extends Piece {
-
 	/**
 	 * @typedef {ParsedPart[]} ParsedRoute
 	 */
@@ -72,7 +71,6 @@ class Route extends Piece {
 		for (let i = 0; i < this.parsed.length; i++) if (this.parsed[i].type === 1) params[this.parsed[i].val] = split[i];
 		return params;
 	}
-
 }
 
 module.exports = Route;

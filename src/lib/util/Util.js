@@ -7,7 +7,6 @@ const [SLASH, COLON] = [47, 58];
  * <danger>This class cannot be initialized with new</danger>
  */
 class Util {
-
 	/**
 	 * @typedef {Object} ParsedPart
 	 * @property {string} val The value of the url part
@@ -72,7 +71,6 @@ class Util {
 		const decipher = createDecipheriv('aes-256-cbc', secret, Buffer.from(iv, 'base64'));
 		return JSON.parse(decipher.update(data, 'base64', 'utf8') + decipher.final('utf8'));
 	}
-
 }
 
 module.exports = Util;

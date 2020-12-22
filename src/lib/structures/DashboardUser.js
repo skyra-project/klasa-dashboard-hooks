@@ -5,7 +5,6 @@ const DashboardGuild = require('./DashboardGuild');
  * Represents an OAuth User
  */
 class DashboardUser {
-
 	/**
 	 * @typedef {?external:KlasaUserJSON} DashboardUserJSON
 	 * @property {string} id The id of the DashboardUser
@@ -49,7 +48,7 @@ class DashboardUser {
 		 * @since 0.0.1
 		 * @type {number}
 		 */
-		this.discriminator = parseInt(user.discriminator);
+		this.discriminator = parseInt(user.discriminator, 10);
 
 		/**
 		 * The language of the OAuth User
@@ -111,7 +110,7 @@ class DashboardUser {
 	 * @returns {DashboardUserJSON}
 	 */
 	toJSON() {
-		const user = (usr => usr ? usr.toJSON() : {})(this.user);
+		const user = ((usr) => (usr ? usr.toJSON() : {}))(this.user);
 		return {
 			...user,
 			id: this.id,
@@ -135,8 +134,6 @@ class DashboardUser {
 	static setupGuilds(dashboardUser, guilds) {
 		for (const guild of guilds) dashboardUser.guilds.set(guild.id, new DashboardGuild(dashboardUser.client, guild, dashboardUser));
 	}
-
-
 }
 
 module.exports = DashboardUser;

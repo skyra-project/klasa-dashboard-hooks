@@ -4,7 +4,6 @@ const { Permissions } = require('discord.js');
  * Represents an OAuthGuild
  */
 class DashboardGuild {
-
 	/**
 	 * @typedef {?external:KlasaGuildJSON} DashboardGuildJSON
 	 * @property {string} id The id of the DashboardGuild
@@ -108,7 +107,7 @@ class DashboardGuild {
 	 * @returns {DashboardGuildJSON}
 	 */
 	toJSON() {
-		const guild = (gld => gld ? gld.toJSON() : {})(this.guild);
+		const guild = ((gld) => (gld ? gld.toJSON() : {}))(this.guild);
 		return {
 			...guild,
 			id: this.id,
@@ -119,7 +118,6 @@ class DashboardGuild {
 			userCanManage: this.userCanManage
 		};
 	}
-
 }
 
 module.exports = DashboardGuild;

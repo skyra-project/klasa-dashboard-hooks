@@ -1,5 +1,4 @@
 declare module 'klasa-dashboard-hooks' {
-
 	import { Collection, Guild, Permissions, User } from 'discord.js';
 	import { IncomingMessage, Server as HttpServer, ServerOptions as H1ServerOptions, ServerResponse } from 'http';
 	import { Http2SecureServer, SecureServerOptions as H2SecureServerOptions } from 'http2';
@@ -7,7 +6,7 @@ declare module 'klasa-dashboard-hooks' {
 	import { KlasaClient, KlasaClientOptions, Piece, PieceDefaults, PieceOptions, Store } from 'klasa';
 	import { Server as HttpSecureServer } from 'tls';
 
-//#region Classes
+	// #region Classes
 
 	export class DashboardClient extends KlasaClient {
 		public constructor(options?: DashboardClientOptions);
@@ -96,8 +95,8 @@ declare module 'klasa-dashboard-hooks' {
 		public static decrypt(token: string, secret: string): any;
 	}
 
-//#endregion Classes
-//#region Types
+	// #endregion Classes
+	// #region Types
 
 	export interface KlasaDashboardHooksOptions {
 		apiPrefix?: string;
@@ -170,23 +169,19 @@ declare module 'klasa-dashboard-hooks' {
 		scope: string[];
 	}
 
-//#endregion Types
-
+	// #endregion Types
 }
 
 declare module 'klasa' {
-
 	import { MiddlewareOptions, RouteOptions } from 'klasa-dashboard-hooks';
 
 	interface PieceDefaults {
 		routes?: RouteOptions;
 		middlewares?: MiddlewareOptions;
 	}
-
 }
 
 declare module 'discord.js' {
-
 	import { DashboardUser, KlasaDashboardHooksOptions, MiddlewareStore, RouteStore, Server } from 'klasa-dashboard-hooks';
 
 	interface Client {
@@ -201,5 +196,4 @@ declare module 'discord.js' {
 		clientSecret?: string;
 		dashboardHooks?: KlasaDashboardHooksOptions;
 	}
-
 }

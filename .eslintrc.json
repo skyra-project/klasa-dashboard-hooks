@@ -1,3 +1,18 @@
 {
-	"extends": "klasa"
+	"extends": "@sapphire",
+	"rules": {
+		"@typescript-eslint/naming-convention": 0,
+		"@typescript-eslint/explicit-member-accessibility": 0,
+		"@typescript-eslint/no-var-requires": 0,
+		"@typescript-eslint/unbound-method": 0,
+		"@typescript-eslint/restrict-plus-operands": 0,
+		"@typescript-eslint/no-extraneous-class": 0,
+		"@typescript-eslint/init-declarations": 0,
+		"@typescript-eslint/member-ordering": 0,
+		"@typescript-eslint/require-await": 0,
+		"@typescript-eslint/no-throw-literal": 0,
+		"@typescript-eslint/no-floating-promises": 0,
+		"no-duplicate-imports": 0,
+		"no-multi-assign": 0
+	}
 }

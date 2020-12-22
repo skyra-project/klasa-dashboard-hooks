@@ -28,8 +28,5 @@ exports.RESPONSES = {
 	UNAUTHORIZED: '{"message":"Unauthorized"}',
 	NOT_READY: '{"message":"No OAuth User Route Loaded"}',
 	OK: '{"message":"Ok"}',
-	UPDATED: [
-		'{"updated":false}',
-		'{"updated":true}'
-	]
+	UPDATED: ['{"updated":false}', '{"updated":true}']
 };

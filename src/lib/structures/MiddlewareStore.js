@@ -7,7 +7,6 @@ const Middleware = require('./Middleware');
  * @extends external:Store
  */
 class MiddlewareStore extends Store {
-
 	/**
 	 * @since 0.0.1
 	 * @param {DashboardClient} client The Klasa client
@@ -40,7 +39,7 @@ class MiddlewareStore extends Store {
 	set(piece) {
 		const middleware = super.set(piece);
 		if (!middleware) return middleware;
-		const index = this.sortedMiddlewares.findIndex(mid => mid.priority >= middleware.priority);
+		const index = this.sortedMiddlewares.findIndex((mid) => mid.priority >= middleware.priority);
 		// If a middleware with lower priority wasn't found, push to the end of the array
 		if (index === -1) this.sortedMiddlewares.push(middleware);
 		else this.sortedMiddlewares.splice(index, 0, middleware);
@@ -73,7 +72,6 @@ class MiddlewareStore extends Store {
 			if (middleware.enabled) await middleware.run(request, response, route);
 		}
 	}
-
 }
 
 module.exports = MiddlewareStore;

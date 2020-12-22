@@ -1,4 +1,7 @@
-const { Client, util: { mergeDefault } } = require('klasa');
+const {
+	Client,
+	util: { mergeDefault }
+} = require('klasa');
 const { Collection } = require('discord.js');
 const path = require('path');
 
@@ -13,8 +16,6 @@ const { OPTIONS } = require('./util/constants');
  * @tutorial GettingStarted
  */
 class DashboardClient extends Client {
-
-
 	/**
 	 * @typedef {external:KlasaClientOptions} DashboardClientOptions
 	 * @property {KlasaDashboardHooksOptions} [dashboardHooks] The Klasa-Dashboard-Hooks specific options
@@ -74,9 +75,8 @@ class DashboardClient extends Client {
 		 */
 		this.dashboardUsers = new Collection();
 
-		this
-			.registerStore(this.routes)
-			.registerStore(this.middlewares);
+		this.registerStore(this.routes) //
+			.registerStore(this.middlewares); //
 
 		const coreDirectory = path.join(__dirname, '../');
 
@@ -85,7 +85,6 @@ class DashboardClient extends Client {
 
 		this.server.listen(this.options.dashboardHooks.port);
 	}
-
 }
 
 module.exports = DashboardClient;

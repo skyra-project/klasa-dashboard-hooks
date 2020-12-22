@@ -9,7 +9,6 @@ const { METHODS_LOWER } = require('../util/constants');
  * @extends external:Store
  */
 class RouteStore extends Store {
-
 	/**
 	 * @since 0.0.1
 	 * @param {DashboardClient} client The Klasa client
@@ -72,7 +71,6 @@ class RouteStore extends Store {
 		for (const method of METHODS) this.registry[method].delete(route.name);
 		return super.delete(route);
 	}
-
 }
 
 module.exports = RouteStore;

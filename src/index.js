@@ -1,4 +1,6 @@
-const { Client: { plugin } } = require('klasa');
+const {
+	Client: { plugin }
+} = require('klasa');
 
 module.exports = {
 	DashboardClient: require('./lib/Client'),
