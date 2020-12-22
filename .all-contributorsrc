@@ -1,12 +1,125 @@
 {
-	"projectName": "klasa-dashboard-hooks",
-	"projectOwner": "skyra-project",
-	"repoType": "github",
-	"repoHost": "https://github.com",
-	"files": ["README.md"],
-	"imageSize": 100,
-	"commit": false,
-	"commitConvention": "angular",
-	"contributors": [],
-	"contributorsPerLine": 7
+  "projectName": "klasa-dashboard-hooks",
+  "projectOwner": "skyra-project",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "dependabot[bot]",
+      "name": "dependabot[bot]",
+      "avatar_url": "https://avatars0.githubusercontent.com/in/29110?v=4",
+      "profile": "https://github.com/apps/dependabot",
+      "contributions": [
+        "maintenance"
+      ]
+    },
+    {
+      "login": "bdistin",
+      "name": "bdistin",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/18535830?v=4",
+      "profile": "https://github.com/bdistin",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "kyranet",
+      "name": "Antonio Román",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/24852502?v=4",
+      "profile": "https://github.com/kyranet",
+      "contributions": [
+        "code",
+        "maintenance"
+      ]
+    },
+    {
+      "login": "dependabot-preview[bot]",
+      "name": "dependabot-preview[bot]",
+      "avatar_url": "https://avatars3.githubusercontent.com/in/2141?v=4",
+      "profile": "https://github.com/apps/dependabot-preview",
+      "contributions": [
+        "maintenance"
+      ]
+    },
+    {
+      "login": "Tylertron1998",
+      "name": "Tyler Davis",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/34944514?v=4",
+      "profile": "https://github.com/Tylertron1998",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "UnseenFaith",
+      "name": "Faith",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/1832323?v=4",
+      "profile": "https://github.com/UnseenFaith",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "1Conan",
+      "name": "1Conan",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/7620342?v=4",
+      "profile": "https://github.com/1Conan",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "gc",
+      "name": "GC",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/30398469?v=4",
+      "profile": "https://github.com/gc",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "MrJacz",
+      "name": "Jacz",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/23615291?v=4",
+      "profile": "https://jaczaus.me/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "Favna",
+      "name": "Jeroen Claassens",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/4019718?v=4",
+      "profile": "https://favware.tech/",
+      "contributions": [
+        "code",
+        "maintenance"
+      ]
+    },
+    {
+      "login": "Soumil07",
+      "name": "Soumil07",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/29275227?v=4",
+      "profile": "https://github.com/Soumil07",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "azure-pipelines[bot]",
+      "name": "azure-pipelines[bot]",
+      "avatar_url": "https://avatars3.githubusercontent.com/in/9426?v=4",
+      "profile": "https://github.com/apps/azure-pipelines",
+      "contributions": [
+        "maintenance"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
 }
