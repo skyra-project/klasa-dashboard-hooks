@@ -1,16 +1,16 @@
 declare module 'klasa-dashboard-hooks' {
-	import { Collection, Guild, Permissions, User } from 'discord.js';
+	import { ClientOptions, Collection, Guild, Permissions, User } from 'discord.js';
 	import { IncomingMessage, Server as HttpServer, ServerOptions as H1ServerOptions, ServerResponse } from 'http';
 	import { Http2SecureServer, SecureServerOptions as H2SecureServerOptions } from 'http2';
 	import { ServerOptions as HS1ServerOptions } from 'https';
-	import { KlasaClient, KlasaClientOptions, Piece, PieceDefaults, PieceOptions, Store } from 'klasa';
+	import { KlasaClient, Piece, PieceDefaults, PieceOptions, Store } from 'klasa';
 	import { Server as HttpSecureServer } from 'tls';
 
 	// #region Classes
 
 	export class DashboardClient extends KlasaClient {
-		public constructor(options?: DashboardClientOptions);
-		public options: Required<DashboardClientOptions>;
+		public constructor(options?: ClientOptions);
+		public options: Required<ClientOptions>;
 		public server: Server;
 		public routes: RouteStore;
 		public middlewares: MiddlewareStore;
@@ -106,12 +106,6 @@ declare module 'klasa-dashboard-hooks' {
 		serverOptions?: H1ServerOptions | HS1ServerOptions | H2SecureServerOptions;
 	}
 
-	export interface DashboardClientOptions extends KlasaClientOptions {
-		clientID?: string;
-		clientSecret?: string;
-		dashboardHooks?: KlasaDashboardHooksOptions;
-	}
-
 	export interface KlasaIncomingMessage extends IncomingMessage {
 		originalUrl: string;
 		path: string;
@@ -170,30 +164,26 @@ declare module 'klasa-dashboard-hooks' {
 	}
 
 	// #endregion Types
-}
 
-declare module 'klasa' {
-	import { MiddlewareOptions, RouteOptions } from 'klasa-dashboard-hooks';
-
-	interface PieceDefaults {
-		routes?: RouteOptions;
-		middlewares?: MiddlewareOptions;
-	}
-}
-
-declare module 'discord.js' {
-	import { DashboardUser, KlasaDashboardHooksOptions, MiddlewareStore, RouteStore, Server } from 'klasa-dashboard-hooks';
-
-	interface Client {
-		server: Server;
-		routes: RouteStore;
-		middlewares: MiddlewareStore;
-		dashboardUsers: Collection<string, DashboardUser>;
+	module 'klasa' {
+		export interface PieceDefaults {
+			routes?: RouteOptions;
+			middlewares?: MiddlewareOptions;
+		}
 	}
 
-	interface ClientOptions {
-		clientID?: string;
-		clientSecret?: string;
-		dashboardHooks?: KlasaDashboardHooksOptions;
+	module 'discord.js' {
+		export interface Client {
+			server: Server;
+			routes: RouteStore;
+			middlewares: MiddlewareStore;
+			dashboardUsers: Collection<string, DashboardUser>;
+		}
+
+		export interface ClientOptions {
+			clientID?: string;
+			clientSecret?: string;
+			dashboardHooks?: KlasaDashboardHooksOptions;
+		}
 	}
 }

@@ -17,7 +17,7 @@ const { OPTIONS } = require('./util/constants');
  */
 class DashboardClient extends Client {
 	/**
-	 * @typedef {external:KlasaClientOptions} DashboardClientOptions
+	 * @typedef {external:ClientOptions} ClientOptions
 	 * @property {KlasaDashboardHooksOptions} [dashboardHooks] The Klasa-Dashboard-Hooks specific options
 	 */
 
@@ -33,7 +33,7 @@ class DashboardClient extends Client {
 	/**
 	 * Constructs the klasa-dashboard-hooks client
 	 * @since 0.0.1
-	 * @param {DashboardClientOptions} config The config to pass to the new client
+	 * @param {ClientOptions} config The config to pass to the new client
 	 */
 	constructor(config) {
 		super(config);

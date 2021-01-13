@@ -29,8 +29,8 @@ module.exports = {
  * @see {@link https://klasa.js.org/#/docs/klasa/master/class/Store}
  */
 /**
- * @external KlasaClientOptions
- * @see {@link https://klasa.js.org/#/docs/klasa/master/typedef/KlasaClientOptions}
+ * @external ClientOptions
+ * @see {@link https://discord.js.org/#/docs/main/stable/typedef/ClientOptions}
  */
 /**
  * @external KlasaGuildJSON
